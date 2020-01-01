@@ -72,7 +72,7 @@ dataSocket.onclose = function (error) {
 
 function genInitTable(arr) {
     var i;
-    var out = "<table border=\"1\">";
+    var out = "<table>";
 
     for(i = 0; i < arr.length; i++) {
         out += "<tr id=\"elem_row_id_" + arr[i].id  + "\"><td>" +

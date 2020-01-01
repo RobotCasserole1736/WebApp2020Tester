@@ -38,9 +38,11 @@ dataSocket.onmessage = function (event) {
              if (arr.obj_array[i].type == "webcam") {
                 var tgt_x_pct = arr.obj_array[i].marker_x;
                 var tgt_y_pct = arr.obj_array[i].marker_y;
-                var rotation = arr.obj_array[i].rotation_deg;
                 //Draw webcam plus crosshairs overlaid
-                webcamTexts += "<td><div id=\"outter\" style=\"position:relative;width:50%;height:auto;\"><img src=\"" + arr.obj_array[i].url + "\" style=\"width:200%;height:auto;transform:rotate(" + rotation.toString() + "deg)\"/><div id=\"crosshair_vert" + (arr.obj_array[i].name) + "\" style=\"background:yellow;position:absolute;top:" + tgt_y_pct.toString() + "%;left:" + tgt_x_pct.toString() + "%;width:2px;height:30px;transform:translate(-50%, -50%)\"/><div id=\"crosshair_horiz" + (arr.obj_array[i].name) + "\" style=\"background:yellow;position:absolute;top:" + tgt_y_pct.toString() + "%;left:" + tgt_x_pct.toString() + "%;width:30px;height:2px;transform:translate(-50%, -50%)\"/></div></td>";
+                webcamTexts += "<td><div id=\"outter\" style=\"position:relative;width:100%;height:auto;\">";
+                webcamTexts += "<img src=\"" + arr.obj_array[i].url + "\" style=\"width:100%;height:auto\"/>";
+                webcamTexts += "<img id=\"crosshair_" + (arr.obj_array[i].name) + "\" src=\"/crosshair.png\" style=\"width:8%;height:auto;position:absolute;top:" + tgt_y_pct.toString() + "%;left:" + tgt_x_pct.toString() + "%;transform:translate(-50%, -50%)\">";
+                webcamTexts += "</div></td>";
             }
         }
 
@@ -51,8 +53,7 @@ dataSocket.onmessage = function (event) {
     } else if (arr.step == "valUpdate") {
         for (i = 0; i < arr.obj_array.length; i++) {
             if (arr.obj_array[i].type == "webcam") {
-                document.getElementById("crosshair_vert" + arr.obj_array[i].name).setAttribute("style", "background:red;position:absolute;top:" + arr.obj_array[i].marker_y + "%;left:" + arr.obj_array[i].marker_x + "%;width:2px;height:30px;transform:translate(-50%, -50%)");
-                document.getElementById("crosshair_horiz" + arr.obj_array[i].name).setAttribute("style", "background:white;position:absolute;top:" + arr.obj_array[i].marker_y + "%;left:" + arr.obj_array[i].marker_x + "%;width:30px;height:2px;transform:translate(-50%, -50%)");
+               document.getElementById("crosshair_" + arr.obj_array[i].name).setAttribute("style", "width:8%;height:auto;position:absolute;top:" + arr.obj_array[i].marker_y + "%;left:" + arr.obj_array[i].marker_x + "%;transform:translate(-50%, -50%)");
             }
         }
     }

@@ -87,16 +87,12 @@ public class CasseroleDriverView {
      *                       full left, 100% is full right).
      * @param marker_y       Y draw position of the crosshairs (in percent - 0% is
      *                       full top, 100% is full bottom).
-     * @param img_rotate_deg Degrees clockwise to rotate the image to be displayed.
-     *                       Crosshairs are drawn on top of the already-rotated
-     *                       image.
      * @param name_in        Name of the web stream. Internal uses only,
      *                       currently...
      */
-    public static void newWebcam(String name_in, String url_in, double marker_x, double marker_y,
-            double img_rotate_deg) {
+    public static void newWebcam(String name_in, String url_in, double marker_x, double marker_y) {
 
-        DriverViewWebcam newWebcam = new DriverViewWebcam(name_in, url_in, marker_x, marker_y, img_rotate_deg);
+        DriverViewWebcam newWebcam = new DriverViewWebcam(name_in, url_in, marker_x, marker_y, 0); //Rotation is currently broken
         webcamObjects.put(name_in, newWebcam);
 
     }

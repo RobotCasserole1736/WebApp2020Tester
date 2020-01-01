@@ -2,7 +2,7 @@ package frc.lib.WebServer;
 
 /*
  *******************************************************************************************
- * Copyright (C) 2017 FRC Team 1736 Robot Casserole - www.robotcasserole.org
+ * Copyright (C) 2017,2020 FRC Team 1736 Robot Casserole - www.robotcasserole.org
  *******************************************************************************************
  *
  * This software is released under the MIT Licence - see the license.txt
@@ -36,11 +36,11 @@ import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 
 public class CasseroleDriverViewStreamerSocket extends WebSocketAdapter {
     private java.util.Timer updater = new java.util.Timer("Driver View Webpage Update");
-    private int updatePeriodMS = 100; // default update rate of 0.1s
+    private int updatePeriodMS = 50; // default update rate of 0.05s
     volatile int test_data;
 
     /**
-     * Set the time between server broadcasts of current state. Default is 100
+     * Set the time between server broadcasts of current state. Default is 50
      * milliseconds. Faster update rates bog down both server and network.
      * 
      * @param in_period_ms Broadcast period in milliseconds.

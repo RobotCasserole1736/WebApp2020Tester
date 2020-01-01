@@ -59,7 +59,7 @@ dataSocket.onmessage = function (event) {
 function genTable(arr) {
     
     var i;
-    var out = "<table border=\"1\">";
+    var out = "<table>";
     
     out += "<tr><td>" +
            "Cal Name" +

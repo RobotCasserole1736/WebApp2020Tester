@@ -244,8 +244,8 @@ function procData(json_data) {
             this.ctx_robot.canvas.width = this.ctx.canvas.width;
             this.ctx_path.canvas.height = this.ctx.canvas.height;
             this.ctx_path.canvas.width = this.ctx.canvas.width;
-            document.getElementById("id02").style.height = this.ctx.canvas.height;
-            document.getElementById("id02").style.width = this.ctx.canvas.width;
+            document.getElementById("container").style.height = this.ctx.canvas.height.toString() + "px";
+            document.getElementById("container").style.width = this.ctx.canvas.width.toString() + "px";
 
             this.bot_origin_offset_x = -1 * min_x_px;
             this.bot_origin_offset_y = -1 * min_y_px;
